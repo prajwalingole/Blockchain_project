@@ -6,7 +6,7 @@ import Login from "./Components/Login"
 import Vote from "./Components/Vote"
 
 const App = () => {
-  const [provider, setProvider] = useState(null);
+  // const [provider, setProvider] = useState(null);
   const [account, setAccount] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
   const [votingStatus, setVotingStatus] = useState(true);
@@ -97,7 +97,7 @@ const App = () => {
       contractAddress, contractAbi, signer
     );
     const status = await contractInstance.getVotingStatus();
-    // console.log(status);
+    if(votingStatus) console.log(votingStatus)
     setVotingStatus(status);
   }
 
@@ -116,7 +116,7 @@ const App = () => {
     if (window.ethereum) {
       try {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
-        setProvider(provider);
+        // setProvider(provider);
         await provider.send("eth_requestAccounts", []);
         const signer = provider.getSigner();
         const address = await signer.getAddress();
