@@ -28,7 +28,7 @@ const App = () => {
         window.ethereum.removeListener('accountsChanged', handleAccountsChanged);
       }
     }
-  }, [])
+  });
 
   const handleNumberChange = (e) => {
     setNumber(e.target.value);
