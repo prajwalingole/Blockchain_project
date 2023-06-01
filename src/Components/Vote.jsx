@@ -2,9 +2,9 @@ import React from 'react'
 
 const Vote = (props) => {
   return (
-    <div > 
-        <h2>Metamask is connected</h2>
-        <p className="connected-account">Metamask Account: {props.account}</p>
+    <div className="voting-container" > 
+        <h2 className='header'>Metamask is connected</h2>
+        <p className='account'>Metamask Account: {props.account}</p>
         {/* <p className="connected-account">Remaining Time: {props.remainingTime}</p> */}
         {props.showButton ? (
             <p>You have already voted!</p>
@@ -13,7 +13,7 @@ const Vote = (props) => {
             <input type="number" placeholder="Enter Candidate Index" value={props.number} onChange={props.handleNumberChange}></input>
             <br />
             <br />
-            <button className="login-button" onClick={props.voteFunction}>Vote</button>
+            <button className="vote-button" onClick={props.voteFunction}>Vote</button>
 
         </div>
         )}

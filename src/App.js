@@ -4,6 +4,7 @@ import { ethers } from "ethers"
 import { contractAbi, contractAddress } from "./Utils/contract"
 import Login from "./Components/Login"
 import Vote from "./Components/Vote"
+import "./App.css"
 
 const App = () => {
   // const [provider, setProvider] = useState(null);
@@ -42,6 +43,7 @@ const App = () => {
       contractAddress, contractAbi, signer
     );
     const voteStatus = await contractInstance.voters(await signer.getAddress());
+    // console.log(voteStatus);
     setCanVote(voteStatus);
 
   }
@@ -133,7 +135,7 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div >
       {isConnected ? (<Vote
         account={account}
         candidates={candidates}
