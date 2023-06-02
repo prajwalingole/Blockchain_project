@@ -62,13 +62,13 @@ const App = () => {
   }
 
   const handleAccountsChanged = (accounts) => {
-    if (accounts.length > 0 && account !== accounts[0]) {
-      setAccount(accounts[0]);
-      canVote();
-    } else {
-      setIsConnected(false);
-      setAccount(null);
-    }
+      if (accounts.length > 0 && account !== accounts[0]) {
+        setAccount(accounts[0]);
+        canVote();
+      } else {
+        setIsConnected(false);
+        setAccount(null);
+      }
   }
 
   const getCandidates = async () => {
@@ -99,8 +99,9 @@ const App = () => {
       contractAddress, contractAbi, signer
     );
     const status = await contractInstance.getVotingStatus();
-    if(votingStatus) console.log(votingStatus)
-    setVotingStatus(status);
+    if(votingStatus) setVotingStatus(status)
+    else setVotingStatus(status)
+   
   }
 
   const getRemainingTime = async () => {
